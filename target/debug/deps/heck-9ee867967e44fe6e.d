@@ -1,0 +1,13 @@
+/run/media/junaid/512 GiB HDD/Programming Arena/Rust/Rusthonian/target/debug/deps/heck-9ee867967e44fe6e.d: /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/lib.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/kebab.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/lower_camel.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/shouty_kebab.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/shouty_snake.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/snake.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/title.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/train.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/upper_camel.rs
+
+/run/media/junaid/512 GiB HDD/Programming Arena/Rust/Rusthonian/target/debug/deps/libheck-9ee867967e44fe6e.rmeta: /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/lib.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/kebab.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/lower_camel.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/shouty_kebab.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/shouty_snake.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/snake.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/title.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/train.rs /home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/upper_camel.rs
+
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/lib.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/kebab.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/lower_camel.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/shouty_kebab.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/shouty_snake.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/snake.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/title.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/train.rs:
+/home/junaid/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/heck-0.4.1/src/upper_camel.rs:

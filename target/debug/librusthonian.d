@@ -1,0 +1,1 @@
+/run/media/junaid/512\ GiB\ HDD/Programming\ Arena/Rust/Rusthonian/target/debug/librusthonian.so: /run/media/junaid/512\ GiB\ HDD/Programming\ Arena/Rust/Rusthonian/UUID/src/lib.rs /run/media/junaid/512\ GiB\ HDD/Programming\ Arena/Rust/Rusthonian/src/lib.rs

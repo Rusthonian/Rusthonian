@@ -1,0 +1,34 @@
+[package]
+name = "rusthonian"
+version = "0.1.0"
+edition = "2021"
+description = "Python bindings for Rust crates via Rusthonian"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Rusthonian/Rusthonian"
+keywords = ["rust", "python", "bindings", "rusthonian", "uuid"]
+categories = ["api-bindings", "python"]
+
+[workspace]
+members = [
+    # "UUID",  # Will be added as Git submodule
+]
+
+[lib]
+name = "rusthonian"
+crate-type = ["cdylib"]
+
+[package.metadata.maturin]
+name = "Rusthonian"
+
+[features]
+default = []
+uuid = ["rusthonian-uuid"]
+
+[dependencies]
+pyo3 = { version = "0.21", features = ["extension-module"] }
+rusthonian-uuid = { path = "UUID", optional = true }
+
+[dev-dependencies]
+
+[build-dependencies]
+pyo3-build-config = "0.21"
