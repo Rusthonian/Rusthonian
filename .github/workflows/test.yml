@@ -40,25 +40,40 @@ jobs:
     - name: Install maturin
       run: pip install maturin
 
+    - name: Debug environment
+      run: |
+        echo "Python version: ${{ matrix.python-version }}"
+        echo "Features: ${{ matrix.features }}"
+        echo "UUID directory exists: $(ls -la UUID/)"
+        echo "UUID Cargo.toml exists: $(test -f UUID/Cargo.toml && echo 'YES' || echo 'NO')"
+
     - name: Build with features
       env:
         PYO3_USE_ABI3_FORWARD_COMPATIBILITY: 1
       run: |
         if [ -n "${{ matrix.features }}" ]; then
-          maturin build --features ${{ matrix.features }}
+          echo "Building with features: ${{ matrix.features }}"
+          maturin build --features ${{ matrix.features }} --verbose
         else
-          maturin build
+          echo "Building without features"
+          maturin build --verbose
         fi
 
     - name: Test Python import
       run: |
         # Install the built wheel
+        echo "Installing wheel..."
         pip install target/wheels/*.whl
         
         # Test basic import
+        echo "Testing basic import..."
         python -c "import Rusthonian; print('Rusthonian imported successfully')"
         
         # Test UUID import if features include uuid
         if [ "${{ matrix.features }}" = "uuid" ]; then
+          echo "Testing UUID import..."
           python -c "from Rusthonian.UUID import UUID, new_v4; print('UUID module imported successfully')"
+          python -c "from Rusthonian.UUID import new_v4; uuid = new_v4(); print(f'Generated UUID: {uuid}')"
+        else
+          echo "Skipping UUID tests (no uuid feature enabled)"
         fi

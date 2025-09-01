@@ -6,7 +6,7 @@ A super project providing Python bindings for various Rust crates via PyO3.
 
 This is a super project that links to submodules for different Rust crate bindings:
 
-- **UUID**: Python bindings for the Rust UUID crate (currently local, will be separate repository)
+- **UUID**: Python bindings for the Rust UUID crate
 - **Future modules**: More bindings will be added as separate repositories
 
 ## Development Setup
