@@ -14,7 +14,7 @@ This is a super project that links to submodules for different Rust crate bindin
 ### Prerequisites
 
 - Rust (latest stable)
-- Python 3.12+ (with PyO3 ABI3 compatibility for Python 3.13+)
+- Python 3.9+ (with PyO3 ABI3 compatibility for Python 3.13+)
 - Git (optional, for submodule management)
 
 ### Setup
@@ -90,7 +90,7 @@ This project includes GitHub Actions workflows for automated testing and publish
 
 ### Test Workflow
 - **Triggers**: Push to main/master, pull requests, manual dispatch
-- **Tests**: Builds against Python 3.8-3.13 with and without features
+- **Tests**: Builds against Python 3.9-3.13 with and without features
 - **Matrix testing**: Tests different Python versions and feature combinations
 
 ### Publish Workflow
