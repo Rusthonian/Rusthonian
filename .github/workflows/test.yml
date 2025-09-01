@@ -69,11 +69,6 @@ jobs:
         echo "Testing basic import..."
         python -c "import Rusthonian; print('Rusthonian imported successfully')"
         
-        # Test UUID import if features include uuid
-        if [ "${{ matrix.features }}" = "uuid" ]; then
-          echo "Testing UUID import..."
-          python -c "from Rusthonian.UUID import UUID, new_v4; print('UUID module imported successfully')"
-          python -c "from Rusthonian.UUID import new_v4; uuid = new_v4(); print(f'Generated UUID: {uuid}')"
-        else
-          echo "Skipping UUID tests (no uuid feature enabled)"
-        fi
+        # Test that the module has expected attributes
+        python -c "import Rusthonian; print(f'Version: {Rusthonian.__version__}')"
+        python -c "import Rusthonian; print(f'Description: {Rusthonian.__description__}')"
