@@ -19,10 +19,17 @@ This is a super project that links to submodules for different Rust crate bindin
 
 ### Setup
 
-1. Clone or download the repository:
+**IMPORTANT**: This project uses Git submodules. You must clone with the `--recursive` flag!
+
+1. Clone the repository with submodules:
 ```bash
-git clone https://github.com/Rusthonian/Rusthonian.git
+git clone --recursive https://github.com/Rusthonian/Rusthonian.git
 cd Rusthonian
+```
+
+**If you already cloned without `--recursive`**, run this to get the submodules:
+```bash
+git submodule update --init --recursive
 ```
 
 2. Set up submodules (if using Git):
@@ -76,6 +83,26 @@ print(uuid)
 - ✅ **UUID module**: Available locally, compiles with feature flag
 - 🔄 **Git submodules**: Ready to be set up when repository is initialized
 - 📋 **Future modules**: Structure ready for boost and other bindings
+
+## Troubleshooting
+
+### "No such file or directory" error for UUID
+If you get an error like:
+```
+failed to read `/path/to/Rusthonian/UUID/Cargo.toml`
+No such file or directory (os error 2)
+```
+
+This means the submodules weren't downloaded. Run:
+```bash
+git submodule update --init --recursive
+```
+
+### Empty UUID directory
+If the UUID directory is empty, the submodule wasn't initialized. Run:
+```bash
+git submodule update --init --recursive
+```
 
 ## Adding New Submodules
 
