@@ -106,12 +106,12 @@ git submodule update --init --recursive
 
 ## Adding New Submodules
 
-1. Create a new repository for your binding (e.g., `rusthonian-boost`)
+1. Create a new repository for your binding (e.g., `rusthonian-uuid`)
 2. Add it to `.gitmodules`:
 ```
-[submodule "boost"]
-    path = boost
-    url = https://github.com/Rusthonian/boost.git
+[submodule "uuid"]
+    path = uuid
+    url = https://github.com/Rusthonian/uuid.git
     branch = main
 ```
 3. Add the dependency to `Cargo.toml`:
