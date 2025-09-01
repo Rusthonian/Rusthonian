@@ -84,6 +84,37 @@ print(uuid)
 - 🔄 **Git submodules**: Ready to be set up when repository is initialized
 - 📋 **Future modules**: Structure ready for boost and other bindings
 
+## CI/CD with GitHub Actions
+
+This project includes GitHub Actions workflows for automated testing and publishing:
+
+### Test Workflow
+- **Triggers**: Push to main/master, pull requests, manual dispatch
+- **Tests**: Builds against Python 3.8-3.13 with and without features
+- **Matrix testing**: Tests different Python versions and feature combinations
+
+### Publish Workflow
+- **Trigger**: Manual dispatch only
+- **Features**:
+  - Builds and publishes to PyPI
+  - Creates GitHub releases automatically
+  - Configurable version, features, and Python version
+  - Requires PyPI API token in repository secrets
+
+### Setting up PyPI Publishing
+
+1. Create a PyPI account and API token
+2. Add the token to your GitHub repository secrets:
+   - Go to Settings → Secrets and variables → Actions
+   - Add a new secret named `PYPI_API_TOKEN`
+   - Paste your PyPI API token
+
+3. To publish a new version:
+   - Go to Actions → Publish to PyPI
+   - Click "Run workflow"
+   - Fill in the version and features
+   - Click "Run workflow"
+
 ## Troubleshooting
 
 ### "No such file or directory" error for UUID

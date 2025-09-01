@@ -1,0 +1,100 @@
+name: Publish to PyPI
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 0.1.0)'
+        required: true
+        default: '0.1.0'
+      features:
+        description: 'Features to build (comma-separated, e.g., uuid,boost)'
+        required: false
+        default: 'uuid'
+      python_version:
+        description: 'Python version to build for'
+        required: false
+        default: '3.12'
+        type: choice
+        options:
+        - '3.8'
+        - '3.9'
+        - '3.10'
+        - '3.11'
+        - '3.12'
+        - '3.13'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ github.event.inputs.python_version }}
+
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Install maturin
+      run: pip install maturin
+
+    - name: Build and publish to PyPI
+      env:
+        PYO3_USE_ABI3_FORWARD_COMPATIBILITY: 1
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        # Set version in Cargo.toml
+        sed -i "s/^version = \".*\"/version = \"${{ github.event.inputs.version }}\"/" Cargo.toml
+        
+        # Build features string
+        FEATURES=""
+        if [ -n "${{ github.event.inputs.features }}" ]; then
+          FEATURES="--features ${{ github.event.inputs.features }}"
+        fi
+        
+        # Build and publish
+        maturin publish $FEATURES --username __token__ --password ${{ secrets.PYPI_API_TOKEN }}
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.event.inputs.version }}
+        release_name: Release v${{ github.event.inputs.version }}
+        body: |
+          ## Rusthonian v${{ github.event.inputs.version }}
+          
+          Python bindings for Rust crates via Rusthonian
+          
+          ### Features included:
+          - ${{ github.event.inputs.features }}
+          
+          ### Installation:
+          ```bash
+          pip install rusthonian
+          ```
+          
+          ### Usage:
+          ```python
+          import Rusthonian
+          
+          # Access UUID functionality (if built with uuid feature)
+          from Rusthonian.UUID import UUID, new_v4
+          
+          # Generate a new UUID
+          uuid = new_v4()
+          print(uuid)
+          ```
+        draft: false
+        prerelease: false
