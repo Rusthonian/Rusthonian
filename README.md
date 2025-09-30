@@ -37,7 +37,7 @@ print(uuid.uuid4())
 Complete Python bindings for Rust's [`uuid` crate](https://docs.rs/uuid/).
 
 - All UUID versions (v1-v8)
-- **1.8+ million UUIDs/second** performance
+- **9.6+ million UUIDs/second** performance
 - See [`uuid/README.md`](uuid/README.md) for full documentation
 
 **Example:**
