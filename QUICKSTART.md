@@ -23,10 +23,10 @@ pip install maturin
 
 ```bash
 # Build and install in development mode (recommended for development)
-maturin develop --release --features uuid
+maturin develop --release 
 
 # Or build a wheel for distribution
-maturin build --release --features uuid
+maturin build --release 
 # Then install: pip install target/wheels/Rusthonian-*.whl
 ```
 
@@ -100,7 +100,7 @@ For Python 3.13 and newer, you may need:
 
 ```bash
 export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
-maturin develop --release --features uuid
+maturin develop --release 
 ```
 
 ### Build Errors
@@ -108,7 +108,7 @@ maturin develop --release --features uuid
 ```bash
 # Clean and rebuild
 cargo clean
-maturin develop --release --features uuid
+maturin develop --release 
 ```
 
 ## Next Steps

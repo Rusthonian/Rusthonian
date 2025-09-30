@@ -9,7 +9,7 @@ echo "======================================================================"
 echo ""
 
 echo "1. Building project..."
-maturin develop --release --features uuid
+maturin develop --release
 echo "✓ Build successful"
 echo ""
 
@@ -23,7 +23,7 @@ echo "✓ Basic usage test passed"
 echo ""
 
 echo "4. Running comprehensive UUID tests..."
-python UUID/test_comprehensive.py | tail -10
+python uuid/test_comprehensive.py | tail -10
 echo ""
 
 echo "5. Running UUID examples..."

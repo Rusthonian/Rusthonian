@@ -5,6 +5,6 @@ include README.md
 include LICENSE-MIT
 include LICENSE-APACHE
 recursive-include src *.rs
-recursive-include UUID *.rs *.toml
+recursive-include uuid *.rs *.toml
 recursive-include examples *.py
-recursive-include Rusthonian *.py *.pyi py.typed
+recursive-include Rusthonian *.py py.typed

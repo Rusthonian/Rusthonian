@@ -9,9 +9,7 @@ keywords = ["rust", "python", "bindings", "rusthonian", "uuid"]
 categories = ["api-bindings", "python"]
 
 [workspace]
-members = [
-    # "UUID",  # Will be added as Git submodule
-]
+members = []
 
 [lib]
 name = "rusthonian"
@@ -20,13 +18,9 @@ crate-type = ["cdylib"]
 [package.metadata.maturin]
 name = "Rusthonian"
 
-[features]
-default = ["uuid"]
-uuid = ["rusthonian-uuid"]
-
 [dependencies]
 pyo3 = { version = "0.22", features = ["extension-module"] }
-rusthonian-uuid = { path = "UUID", optional = true }
+rusthonian-uuid = { path = "uuid" }
 
 [dev-dependencies]
 

@@ -50,7 +50,7 @@ Repository = "https://github.com/Rusthonian/Rusthonian"
 Changelog = "https://github.com/Rusthonian/Rusthonian/releases"
 
 [tool.maturin]
-features = ["pyo3/extension-module", "uuid"]
+features = ["pyo3/extension-module"]
 python-source = "."
 module-name = "Rusthonian.rusthonian"
 include = ["Rusthonian/**/*.py", "Rusthonian/py.typed"]
