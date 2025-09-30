@@ -21,14 +21,14 @@ crate-type = ["cdylib"]
 name = "Rusthonian"
 
 [features]
-default = []
+default = ["uuid"]
 uuid = ["rusthonian-uuid"]
 
 [dependencies]
-pyo3 = { version = "0.21", features = ["extension-module"] }
+pyo3 = { version = "0.22", features = ["extension-module"] }
 rusthonian-uuid = { path = "UUID", optional = true }
 
 [dev-dependencies]
 
 [build-dependencies]
-pyo3-build-config = "0.21"
+pyo3-build-config = "0.22"

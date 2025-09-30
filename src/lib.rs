@@ -1,20 +1,32 @@
 use pyo3::prelude::*;
 
-/// Main Rusthonian module - super project for various Rust crate bindings
-/// This module links to submodules like UUID, etc.
+#[cfg(feature = "uuid")]
+use rusthonian_uuid;
+
+/// Rusthonian - High-performance Python bindings for Rust crates
+/// 
+/// This module provides access to various Rust crate functionality through
+/// efficient PyO3 bindings.
+/// 
+/// Available submodules (when compiled with corresponding features):
+/// - uuid: Complete bindings for the Rust uuid crate
 #[pymodule]
-fn Rusthonian(_py: Python, m: &PyModule) -> PyResult<()> {
-    // Add UUID submodule if available
+fn rusthonian(py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
+    m.add("__version__", env!("CARGO_PKG_VERSION"))?;
+    m.add("__doc__", "High-performance Python bindings for Rust crates")?;
+    m.add("__author__", "Rusthonian Team")?;
+
     #[cfg(feature = "uuid")]
     {
-        let uuid_module = PyModule::new(_py, "UUID")?;
-        rusthonian_uuid::setup_uuid_module(_py, uuid_module)?;
-        m.add_submodule(uuid_module)?;
+        let uuid_module = PyModule::new_bound(py, "uuid")?;
+        rusthonian_uuid::setup_uuid_module(py, &uuid_module)?;
+        m.add_submodule(&uuid_module)?;
+        
+        // Make uuid available as Rusthonian.uuid
+        py.import_bound("sys")?
+            .getattr("modules")?
+            .set_item("Rusthonian.uuid", &uuid_module)?;
     }
-    
-    // Add metadata
-    m.add("__version__", "0.1.0")?;
-    m.add("__description__", "Python bindings for Rust crates via Rusthonian")?;
-    
+
     Ok(())
 }
