@@ -1,4 +1,4 @@
-[submodule "UUID"]
-	path = UUID
-	url = https://github.com/Rusthonian/UUID.git
+[submodule "uuid"]
+	path = uuid
+	url = https://github.com/Rusthonian/uuid
 	branch = main

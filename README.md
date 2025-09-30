@@ -9,17 +9,26 @@ Rusthonian is an umbrella project that provides Python bindings for high-quality
 
 ## 🚀 Quick Start
 
-```bash
-# 1. Clone
-git clone https://github.com/YourUsername/Rusthonian.git
-cd Rusthonian
+### Install from PyPI (Easiest)
 
-# 2. Build
+```bash
+pip install Rusthonian
+```
+
+### Or Build from Source
+
+```bash
+git clone https://github.com/Rusthonian/Rusthonian.git
+cd Rusthonian
 pip install maturin
 maturin develop --release
+```
 
-# 3. Use
-python -c "from Rusthonian import uuid; print(uuid.uuid4())"
+### Use It
+
+```python
+from Rusthonian import uuid
+print(uuid.uuid4())
 ```
 
 ## 📦 Included Modules
@@ -28,7 +37,7 @@ python -c "from Rusthonian import uuid; print(uuid.uuid4())"
 Complete Python bindings for Rust's [`uuid` crate](https://docs.rs/uuid/).
 
 - All UUID versions (v1-v8)
-- **9.6+ million UUIDs/second** performance
+- **1.8+ million UUIDs/second** performance
 - See [`uuid/README.md`](uuid/README.md) for full documentation
 
 **Example:**
@@ -38,6 +47,17 @@ from Rusthonian import uuid
 u = uuid.uuid4()  # Random UUID
 print(u)
 ```
+
+## 📥 Installation
+
+```bash
+pip install Rusthonian
+```
+
+That's it! No need to install Rust or build anything. Pre-built wheels are available for:
+- Linux (x86_64, aarch64)
+- macOS (Intel, Apple Silicon)  
+- Windows (x64)
 
 ## 🛠️ Building
 
