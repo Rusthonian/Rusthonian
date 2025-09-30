@@ -2,3 +2,7 @@
 	path = uuid
 	url = https://github.com/Rusthonian/uuid
 	branch = main
+[submodule "chrono"]
+	path = chrono
+	url = https://github.com/Rusthonian/chrono.git
+	branch = main
