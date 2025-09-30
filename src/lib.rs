@@ -1,5 +1,6 @@
 use pyo3::prelude::*;
 use rusthonian_uuid;
+use rusthonian_chrono;
 
 /// Rusthonian - High-performance Python bindings for Rust crates
 /// 
@@ -8,6 +9,7 @@ use rusthonian_uuid;
 /// 
 /// Available modules:
 /// - uuid: Complete bindings for the Rust uuid crate
+/// - chrono: Complete bindings for the Rust chrono crate
 #[pymodule]
 fn rusthonian(py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
@@ -21,6 +23,14 @@ fn rusthonian(py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
     py.import_bound("sys")?
         .getattr("modules")?
         .set_item("Rusthonian.uuid", &uuid_module)?;
+
+    let chrono_module = PyModule::new_bound(py, "chrono")?;
+    rusthonian_chrono::setup_chrono_module(py, &chrono_module)?;
+    m.add_submodule(&chrono_module)?;
+    
+    py.import_bound("sys")?
+        .getattr("modules")?
+        .set_item("Rusthonian.chrono", &chrono_module)?;
 
     Ok(())
 }

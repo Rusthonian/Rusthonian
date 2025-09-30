@@ -1,11 +1,11 @@
 [package]
 name = "rusthonian"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "Python bindings for Rust crates via Rusthonian"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/Rusthonian/Rusthonian"
-keywords = ["rust", "python", "bindings", "rusthonian", "uuid"]
+keywords = ["rust", "python", "bindings", "rusthonian", "uuid", "chrono"]
 categories = ["api-bindings", "python"]
 
 [workspace]
@@ -21,6 +21,7 @@ name = "Rusthonian"
 [dependencies]
 pyo3 = { version = "0.22", features = ["extension-module"] }
 rusthonian-uuid = { path = "uuid" }
+rusthonian-chrono = { path = "chrono" }
 
 [dev-dependencies]
 

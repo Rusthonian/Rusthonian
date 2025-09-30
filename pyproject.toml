@@ -23,9 +23,9 @@ classifiers = [
     "Typing :: Typed",
 ]
 dynamic = ["version"]
-description = "High-performance Python bindings for Rust crates"
+description = "High-performance Python bindings for Rust crates (UUID, Chrono, and more)"
 readme = "README.md"
-keywords = ["rust", "python", "bindings", "rusthonian", "uuid", "performance"]
+keywords = ["rust", "python", "bindings", "rusthonian", "uuid", "chrono", "datetime", "performance"]
 license = {text = "MIT OR Apache-2.0"}
 authors = [
     {name = "Rusthonian Team", email = "contact@rusthonian.org"}

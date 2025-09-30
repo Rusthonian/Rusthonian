@@ -27,8 +27,12 @@ maturin develop --release
 ### Use It
 
 ```python
-from Rusthonian import uuid
+from Rusthonian import uuid, chrono
+
 print(uuid.uuid4())
+
+now = chrono.DateTime.now()
+print(now.to_rfc3339())
 ```
 
 ## 📦 Included Modules
@@ -44,8 +48,27 @@ Complete Python bindings for Rust's [`uuid` crate](https://docs.rs/uuid/).
 ```python
 from Rusthonian import uuid
 
-u = uuid.uuid4()  # Random UUID
+u = uuid.uuid4()
 print(u)
+```
+
+### Chrono
+Complete Python bindings for Rust's [`chrono` crate](https://docs.rs/chrono/).
+
+- DateTime with timezone support (UTC, Local, FixedOffset)
+- Naive types (NaiveDateTime, NaiveDate, NaiveTime)
+- Duration arithmetic and conversions
+- **10-50x faster** than Python's datetime
+- RFC3339 and RFC2822 parsing/formatting
+- See [`chrono/README.md`](chrono/README.md) for full documentation
+
+**Example:**
+```python
+from Rusthonian import chrono
+
+now = chrono.DateTime.now()
+tomorrow = now + chrono.Duration.days(1)
+print(tomorrow.format("%Y-%m-%d %H:%M:%S"))
 ```
 
 ## 📥 Installation
@@ -90,7 +113,8 @@ maturin develop --release
 
 - **Quick Start**: See [`QUICKSTART.md`](QUICKSTART.md)
 - **UUID Module**: See [`uuid/README.md`](uuid/README.md)
-- **Examples**: Check [`examples/`](examples/)
+- **Chrono Module**: See [`chrono/README.md`](chrono/README.md)
+- **Examples**: Check module-specific example directories
 
 ## 🧪 Testing
 
@@ -98,9 +122,9 @@ maturin develop --release
 # Run all tests
 ./test_all.sh
 
-# Or manually
-python examples/basic_usage.py
+# Or test individual modules
 python uuid/test_comprehensive.py
+python chrono/examples/chrono_example.py
 ```
 
 ## 🏗️ Project Structure
@@ -111,10 +135,14 @@ Rusthonian/
 │   └── lib.rs
 ├── uuid/             # UUID module
 │   ├── src/
+│   ├── examples/
+│   └── README.md
+├── chrono/           # Chrono module  
+│   ├── src/
+│   ├── examples/
 │   └── README.md
 ├── Rusthonian/       # Python package wrapper
 │   └── __init__.py
-├── examples/         # Usage examples
 ├── Cargo.toml        # Rust config
 └── pyproject.toml    # Python packaging
 ```
